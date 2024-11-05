@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 export default function PostForm({ post }) {
     const { register, handleSubmit, watch, setValue, control, getValues } = useForm({
         defaultValues: {
-            title: post?.title || "",
+            Tittle: post?.Tittle || "",
             slug: post?.$id || "",
             content: post?.content || "",
             status: post?.status || "active",
@@ -62,8 +62,8 @@ export default function PostForm({ post }) {
 
     React.useEffect(() => {
         const subscription = watch((value, { name }) => {
-            if (name === "title") {
-                setValue("slug", slugTransform(value.title), { shouldValidate: true });
+            if (name === "Tittle") {
+                setValue("slug", slugTransform(value.Tittle), { shouldValidate: true });
             }
         });
 
@@ -74,8 +74,8 @@ export default function PostForm({ post }) {
         <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
             <div className="w-2/3 px-2">
                 <Input
-                    label="Title :"
-                    placeholder="Title"
+                    label="Tittle :"
+                    placeholder="Tittle"
                     className="mb-4"
                     {...register("title", { required: true })}
                 />
